@@ -16,8 +16,6 @@
     public $nome_produto;
     public $qntd_produto;
     public $valor_produto;
-    public $descricao;
-    public $imagem;
 
   
     public function __construct($db) {
@@ -58,7 +56,7 @@
     public function createProduct() {
         $query = "INSERT INTO " . $this->table_produto . " SET
         nome_produto=:nome_produto, qntd_produto=:qntd_produto, valor_produto=:valor_produto,
-        created_at=:created_at, imagem=:imagem, descricao=:descricao";
+        created_at=:created_at";
 
         $stmt = $this->conn->prepare($query);
 
@@ -66,8 +64,6 @@
         $stmt->bindParam(":qntd_produto", $this->qntd_produto);
         $stmt->bindParam(":valor_produto", $this->valor_produto);
         $stmt->bindParam(":created_at", $this->created_at);
-        $stmt->bindParam(":imagem", $this->imagem);
-        $stmt->bindParam(":descricao", $this->descricao);
 
         if ($stmt->execute()) {
             return true;
