@@ -17,8 +17,6 @@ $db = $database->getConnection();
 // Instanciar o objeto User
 $user = new User($db);
 
-var_dump($_POST);
-
 $user->login = $_POST["login"];
 $user->senha= MD5($_POST["senha"]);
 $user->created_at = date('Y-m-d H:i:s');
@@ -51,7 +49,7 @@ $user->adress = $_POST['adress'];
           Swal.fire({
               icon: 'success',
               title: 'Sucesso',
-              text: 'O usuário foi cadastrado com sucesso',
+              text: 'O usuário foi cadastrado com sucesso!',
           }) .then((result) => {
                   console.log(result);
                   if (result.isConfirmed || result.isDismissed) {
