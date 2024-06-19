@@ -28,3 +28,9 @@ insert into usuarios (name, last_name, adress, phone, login, senha) VALUES
 ('admin','admin','admin','admin','admin@admin', 'admin'),
 ('usuario','usuario', 'rua usuario', '41 999999999', 'usuario@usuario', 'usuario');
 
+insert into produtos (nome_produto, qntd_produto, valor_produto) VALUES
+('geladeira', '2', '2500'),
+('microondas', '1', '300'),
+('notebook Dell', '3', '5000'),
+('fogão', '2', '800'),
+('armário', '5', '750');
