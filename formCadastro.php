@@ -53,7 +53,11 @@
                             <div class="col-lg-12 col-sm-12">
                                 <input class="btn btn-primary2" style="width: 100%;" type="submit" value="Cadastrar" id="cadastrar" name="cadastrar">
                             </div>
-                        </div>                
+                        </div>           
+                        <div class="loginBaixo">
+                            <a href="indexLogin.php" class="texto-cadastro">Já tem login? Clique aqui para se conectar</a>
+                        </div>    
+
                     </form>
                 </div>
             </div>
