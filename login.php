@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verificar se os campos login e senha estão definidos
     if (isset($_POST["login"]) && isset($_POST["senha"])) {
         $user->login = $_POST["login"];
-        $user->senha = md5($_POST["senha"]); // Criptografar a senha usando MD5
+        $user->setSenha($_POST["senha"]); // Criptografar a senha usando MD5
 
         // Verificar se o usuário existe e a senha está correta
         if ($user->login == "" || $user->senha == "") {

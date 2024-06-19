@@ -1,5 +1,5 @@
 <?php
-class User {
+ class User {
     private $conn;
     private $table_name = "usuarios";
 
@@ -16,9 +16,21 @@ class User {
     public $nome_produto;
     public $qntd_produto;
     public $valor_produto;
+    public $descricao;
+    public $imagem;
 
+  
     public function __construct($db) {
         $this->conn = $db;
+    }
+
+    public function setSenha($senha) {
+        $this->senha = md5($senha);
+    }
+
+
+    public function getSenha() {
+        return $this->senha;
     }
 
     public function create() {
@@ -46,7 +58,7 @@ class User {
     public function createProduct() {
         $query = "INSERT INTO " . $this->table_produto . " SET
         nome_produto=:nome_produto, qntd_produto=:qntd_produto, valor_produto=:valor_produto,
-        created_at=:created_at";
+        created_at=:created_at, imagem=:imagem, descricao=:descricao";
 
         $stmt = $this->conn->prepare($query);
 
@@ -54,12 +66,16 @@ class User {
         $stmt->bindParam(":qntd_produto", $this->qntd_produto);
         $stmt->bindParam(":valor_produto", $this->valor_produto);
         $stmt->bindParam(":created_at", $this->created_at);
+        $stmt->bindParam(":imagem", $this->imagem);
+        $stmt->bindParam(":descricao", $this->descricao);
 
         if ($stmt->execute()) {
             return true;
         }
         return false;
     }
+
+  
 
     public function checkLogin() {
         $query = "SELECT * FROM " . $this->table_name . " WHERE login = :login AND senha = :senha LIMIT 1";
