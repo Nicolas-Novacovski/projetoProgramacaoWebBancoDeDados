@@ -20,7 +20,4 @@ class Database {
         return $this->conn;
     }
 }
-
-// Método para enviar o login
-
 ?>
